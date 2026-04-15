@@ -1,0 +1,46 @@
+Build a complete, production-ready-looking MVP prototype for "AgentRail" — the transparent x402 payment rail for AI agents.
+
+Exact tech stack:
+- Next.js 15 (app router) with TypeScript
+- Tailwind CSS (already configured)
+- React Icons (lucide-react or heroicons — use whichever is easier)
+- Theme: strict black and white only — dark mode by default (#000000 background, #ffffff text, #111111 cards, subtle #222222 accents, clean minimal design, no colors except white/gray/black)
+- Use shadcn/ui style components where possible but keep it simple and built-in
+
+The product has exactly three pieces (build all of them as one cohesive app for testing):
+
+1. Managed wallet engine (simulated for this test)
+   - On "signup" (mock auth with Replit Auth or simple local email/password), auto-create a fake Privy-style server wallet.
+   - Store in localStorage or a simple in-memory DB (no real DB needed).
+   - Show USDC balance, allow mock top-up (input amount → instantly adds to balance).
+   - Enforce simple policies: monthly cap, per-agent spend limits.
+
+2. Developer dashboard (the main UI — make this beautiful and fully functional)
+   - Landing page with clean hero: "AgentRail — agents pay autonomously, you never touch keys"
+   - Signup / Login (mock)
+   - Dashboard home:
+     - Current USDC balance + "Top up" button (modal with fake on-ramp)
+     - List of agents (mock 2–3 agents: "ResearchSwarm", "DataFetcher", etc.)
+     - Per-agent spend analytics (simple bar chart using Recharts — show last 7 days)
+     - Global monthly cap slider + per-agent cap settings
+     - Recent transactions table (mock x402 payments with amount, endpoint, timestamp)
+     - "Export receipts" button (downloads a fake CSV or PDF)
+     - Sidebar nav: Dashboard, Agents, Policies, Analytics, Docs
+   - All pages must be responsive and feel premium/minimal.
+
+3. Client interceptor demo (the magic part)
+   - Add a separate "/demo" route called "Interceptor Test"
+   - Show a code snippet of a fake agent using fetch (LangChain-style example)
+   - Button: "Run Agent Request" → simulates hitting a protected endpoint → shows the 402 response → automatically "pays" from the managed wallet (using the simulated engine) → shows the transparent retry → displays success with X-PAYMENT header.
+   - Include a downloadable button that gives the full npm package code as a zip or raw files for @agentrail/fetch (the transparent fetch wrapper that catches 402s, calls the backend, and retries).
+
+Also include:
+- A simple mock backend API route (/api/wallet/* and /api/pay) that handles the simulated Privy signing and policy checks.
+- Navigation that feels like a real SaaS product.
+- Footer with "Built as MVP test on Replit — $49/mo planned pricing".
+- Make the entire app feel polished, fast, and ready to show investors or the Elsa fellowship.
+- Add realistic placeholder data so I can click around immediately after generation.
+
+Start by creating the Next.js project structure, install all needed dependencies (tailwind, lucide-react or react-icons, recharts, etc.), configure Tailwind for black/white theme, then build everything step by step. When done, give me a preview link and tell me how to test the full flow from signup → top-up → demo interceptor payment.
+
+This is the entire MVP for testing — make it complete and impressive.

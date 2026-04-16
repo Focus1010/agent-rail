@@ -146,7 +146,7 @@ export default function Landing() {
           </h1>
           <p className="text-lg text-[#888] max-w-2xl mx-auto mb-10 leading-relaxed">
             AgentRail is the transparent payment rail for AI agents. Managed wallets, automatic
-            x402 payment handling, and full spend control — all without exposing private keys.
+            x402 payment handling, and full spend control, all without exposing private keys.
           </p>
           <div className="flex items-center justify-center gap-4">
             <button
@@ -213,7 +213,7 @@ const response = await agentFetch("https://api.example.com/data", {
               {
                 icon: Bot,
                 title: "Transparent Interceptor",
-                desc: "Drop-in fetch replacement. Catches 402 responses, pays from the managed wallet, and retries — all invisible to your agent.",
+                desc: "Drop-in fetch replacement. Catches 402 responses, pays from the managed wallet, and retries, all invisible to your agent.",
               },
             ].map((feature) => (
               <div
@@ -238,7 +238,7 @@ const response = await agentFetch("https://api.example.com/data", {
             {[
               { step: "01", title: "Fund Wallet", desc: "Add USDC to your managed wallet via our on-ramp" },
               { step: "02", title: "Set Policies", desc: "Configure spend caps per agent and monthly limits" },
-              { step: "03", title: "Integrate SDK", desc: "Swap fetch() for agentFetch() — one line change" },
+              { step: "03", title: "Integrate SDK", desc: "Swap fetch() for agentFetch(), one line change" },
               { step: "04", title: "Agents Pay", desc: "x402 payments happen transparently on every 402" },
             ].map((item, i) => (
               <div key={item.step} className="flex items-start gap-3">

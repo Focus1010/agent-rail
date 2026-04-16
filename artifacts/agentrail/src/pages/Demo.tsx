@@ -30,7 +30,7 @@ const agent = new ResearchAgent({
 });
 
 // The agent calls APIs normally. When a 402 is returned,
-// AgentRail intercepts, pays, and retries — transparently.
+// AgentRail intercepts, pays, and retries, transparently.
 const result = await agent.invoke({
   task: "Research the latest x402 protocol developments",
   tools: [

@@ -1,0 +1,7 @@
+{
+  "framework": null,
+  "buildCommand": "cd artifacts/agentrail && npm install && npm run build",
+  "outputDirectory": "artifacts/agentrail/dist",
+  "installCommand": null,
+  "rootDirectory": "."
+}

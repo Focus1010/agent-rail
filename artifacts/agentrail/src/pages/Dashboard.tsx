@@ -137,40 +137,40 @@ export default function Dashboard() {
     <DashboardLayout>
       {showTopUp && <TopUpModal onClose={() => setShowTopUp(false)} />}
 
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-1">Dashboard</h1>
-        <p className="text-[#888] text-sm">Overview of your agent payment activity</p>
+      <div className="mb-6 lg:mb-8">
+        <h1 className="text-xl lg:text-2xl font-bold mb-1">Dashboard</h1>
+        <p className="text-[#888] text-xs lg:text-sm">Overview of your agent payment activity</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs text-[#888]">USDC Balance</span>
-            <Wallet className="w-4 h-4 text-[#555]" />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-6 lg:mb-8">
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <div className="flex items-center justify-between mb-2 lg:mb-3">
+            <span className="text-[10px] lg:text-xs text-[#888]">USDC Balance</span>
+            <Wallet className="w-3 h-3 lg:w-4 lg:h-4 text-[#555]" />
           </div>
-          <div className="text-2xl font-bold font-mono mb-3">
+          <div className="text-lg lg:text-2xl font-bold font-mono mb-2 lg:mb-3">
             ${wallet.balance.toFixed(2)}
           </div>
           <button
             onClick={() => setShowTopUp(true)}
-            className="w-full bg-white text-black text-xs font-medium py-2 rounded-lg hover:bg-[#e0e0e0] transition-colors flex items-center justify-center gap-1.5"
+            className="w-full bg-white text-black text-[10px] lg:text-xs font-medium py-1.5 lg:py-2 rounded-lg hover:bg-[#e0e0e0] transition-colors flex items-center justify-center gap-1"
           >
             <Plus className="w-3 h-3" /> Top Up
           </button>
         </div>
 
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs text-[#888]">Monthly Spent</span>
-            <TrendingUp className="w-4 h-4 text-[#555]" />
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <div className="flex items-center justify-between mb-2 lg:mb-3">
+            <span className="text-[10px] lg:text-xs text-[#888]">Monthly Spent</span>
+            <TrendingUp className="w-3 h-3 lg:w-4 lg:h-4 text-[#555]" />
           </div>
-          <div className="text-2xl font-bold font-mono">
+          <div className="text-lg lg:text-2xl font-bold font-mono">
             ${wallet.monthlySpent.toFixed(2)}
           </div>
-          <div className="text-xs text-[#666] mt-1">
+          <div className="text-[10px] lg:text-xs text-[#666] mt-1">
             of ${wallet.monthlyCap} cap
           </div>
-          <div className="w-full h-1.5 bg-[#222] rounded-full mt-2">
+          <div className="w-full h-1 lg:h-1.5 bg-[#222] rounded-full mt-2">
             <div
               className="h-full bg-white rounded-full transition-all"
               style={{
@@ -180,37 +180,37 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs text-[#888]">Active Agents</span>
-            <Bot className="w-4 h-4 text-[#555]" />
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <div className="flex items-center justify-between mb-2 lg:mb-3">
+            <span className="text-[10px] lg:text-xs text-[#888]">Active Agents</span>
+            <Bot className="w-3 h-3 lg:w-4 lg:h-4 text-[#555]" />
           </div>
-          <div className="text-2xl font-bold font-mono">{activeAgents}</div>
-          <div className="text-xs text-[#666] mt-1">of {totalAgents} total</div>
+          <div className="text-lg lg:text-2xl font-bold font-mono">{activeAgents}</div>
+          <div className="text-[10px] lg:text-xs text-[#666] mt-1">of {totalAgents} total</div>
         </div>
 
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs text-[#888]">Total Requests</span>
-            <Activity className="w-4 h-4 text-[#555]" />
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <div className="flex items-center justify-between mb-2 lg:mb-3">
+            <span className="text-[10px] lg:text-xs text-[#888]">Total Requests</span>
+            <Activity className="w-3 h-3 lg:w-4 lg:h-4 text-[#555]" />
           </div>
-          <div className="text-2xl font-bold font-mono">
+          <div className="text-lg lg:text-2xl font-bold font-mono">
             {totalRequests.toLocaleString()}
           </div>
-          <div className="text-xs text-[#666] mt-1">all time</div>
+          <div className="text-[10px] lg:text-xs text-[#666] mt-1">all time</div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
-        <div className="lg:col-span-3 bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="font-semibold text-sm">Spend by Agent (7 days)</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6 mb-6 lg:mb-8">
+        <div className="lg:col-span-3 bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <div className="flex items-center justify-between mb-3 lg:mb-4">
+            <h2 className="font-semibold text-xs lg:text-sm">Spend by Agent (7 days)</h2>
           </div>
-          <ResponsiveContainer width="100%" height={240}>
+          <ResponsiveContainer width="100%" height={200}>
             <BarChart data={chartData} barGap={2}>
               <CartesianGrid strokeDasharray="3 3" stroke="#1a1a1a" />
-              <XAxis dataKey="day" tick={{ fill: "#666", fontSize: 12 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: "#666", fontSize: 12 }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${v}`} />
+              <XAxis dataKey="day" tick={{ fill: "#666", fontSize: 11 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill: "#666", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${v}`} width={40} />
               <Tooltip
                 contentStyle={{
                   background: "#111",
@@ -228,32 +228,32 @@ export default function Dashboard() {
           </ResponsiveContainer>
         </div>
 
-        <div className="lg:col-span-2 bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <h2 className="font-semibold text-sm mb-4">Agents</h2>
-          <div className="space-y-3">
+        <div className="lg:col-span-2 bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <h2 className="font-semibold text-xs lg:text-sm mb-3 lg:mb-4">Agents</h2>
+          <div className="space-y-2 lg:space-y-3">
             {agents.map((agent) => (
               <div
                 key={agent.id}
-                className="flex items-center justify-between p-3 bg-[#0a0a0a] rounded-lg border border-[#1a1a1a]"
+                className="flex items-center justify-between p-2.5 lg:p-3 bg-[#0a0a0a] rounded-lg border border-[#1a1a1a]"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 lg:gap-3">
                   <div
                     className={`w-2 h-2 rounded-full ${
                       agent.status === "active" ? "bg-green-500" : "bg-yellow-500"
                     }`}
                   />
                   <div>
-                    <div className="text-sm font-medium">{agent.name}</div>
-                    <div className="text-xs text-[#666]">
+                    <div className="text-xs lg:text-sm font-medium">{agent.name}</div>
+                    <div className="text-[10px] lg:text-xs text-[#666]">
                       {agent.requestCount} requests
                     </div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-sm font-mono">
+                  <div className="text-xs lg:text-sm font-mono">
                     ${agent.totalSpent.toFixed(2)}
                   </div>
-                  <div className="text-xs text-[#666]">
+                  <div className="text-[10px] lg:text-xs text-[#666]">
                     / ${agent.spendLimit}
                   </div>
                 </div>
@@ -263,36 +263,36 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="font-semibold text-sm">Recent Transactions</h2>
+      <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+        <div className="flex items-center justify-between mb-3 lg:mb-4">
+          <h2 className="font-semibold text-xs lg:text-sm">Recent Transactions</h2>
           <button
             onClick={exportCsv}
-            className="text-xs text-[#888] hover:text-white transition-colors flex items-center gap-1.5 border border-[#222] px-3 py-1.5 rounded-lg hover:bg-[#1a1a1a]"
+            className="text-[10px] lg:text-xs text-[#888] hover:text-white transition-colors flex items-center gap-1 lg:gap-1.5 border border-[#222] px-2 lg:px-3 py-1 lg:py-1.5 rounded-lg hover:bg-[#1a1a1a]"
           >
             <Download className="w-3 h-3" /> Export CSV
           </button>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto -mx-2 px-2">
+          <table className="w-full text-xs lg:text-sm">
             <thead>
               <tr className="border-b border-[#1a1a1a]">
-                <th className="text-left py-2 px-3 text-xs text-[#666] font-medium">Agent</th>
-                <th className="text-left py-2 px-3 text-xs text-[#666] font-medium">Endpoint</th>
-                <th className="text-right py-2 px-3 text-xs text-[#666] font-medium">Amount</th>
-                <th className="text-left py-2 px-3 text-xs text-[#666] font-medium">Status</th>
-                <th className="text-right py-2 px-3 text-xs text-[#666] font-medium">Time</th>
+                <th className="text-left py-2 px-2 lg:px-3 text-[10px] lg:text-xs text-[#666] font-medium">Agent</th>
+                <th className="text-left py-2 px-2 lg:px-3 text-[10px] lg:text-xs text-[#666] font-medium hidden sm:table-cell">Endpoint</th>
+                <th className="text-right py-2 px-2 lg:px-3 text-[10px] lg:text-xs text-[#666] font-medium">Amount</th>
+                <th className="text-left py-2 px-2 lg:px-3 text-[10px] lg:text-xs text-[#666] font-medium">Status</th>
+                <th className="text-right py-2 px-2 lg:px-3 text-[10px] lg:text-xs text-[#666] font-medium">Time</th>
               </tr>
             </thead>
             <tbody>
               {recentTx.map((tx) => (
                 <tr key={tx.id} className="border-b border-[#0a0a0a] hover:bg-[#0a0a0a] transition-colors">
-                  <td className="py-3 px-3 font-medium">{tx.agentName}</td>
-                  <td className="py-3 px-3 text-[#888] font-mono text-xs truncate max-w-[200px]">
+                  <td className="py-2.5 lg:py-3 px-2 lg:px-3 font-medium">{tx.agentName}</td>
+                  <td className="py-2.5 lg:py-3 px-2 lg:px-3 text-[#888] font-mono text-[10px] lg:text-xs truncate max-w-[100px] lg:max-w-[200px] hidden sm:table-cell">
                     {tx.endpoint}
                   </td>
-                  <td className="py-3 px-3 text-right font-mono">
+                  <td className="py-2.5 lg:py-3 px-2 lg:px-3 text-right font-mono">
                     <span className="flex items-center justify-end gap-1">
                       {tx.status === "success" ? (
                         <ArrowUpRight className="w-3 h-3 text-green-500" />
@@ -302,9 +302,9 @@ export default function Dashboard() {
                       ${tx.amount.toFixed(2)}
                     </span>
                   </td>
-                  <td className="py-3 px-3">
+                  <td className="py-2.5 lg:py-3 px-2 lg:px-3">
                     <span
-                      className={`text-xs px-2 py-0.5 rounded-full ${
+                      className={`text-[10px] lg:text-xs px-1.5 lg:px-2 py-0.5 rounded-full ${
                         tx.status === "success"
                           ? "bg-green-500/10 text-green-400"
                           : "bg-red-500/10 text-red-400"
@@ -313,7 +313,7 @@ export default function Dashboard() {
                       {tx.status}
                     </span>
                   </td>
-                  <td className="py-3 px-3 text-right text-xs text-[#666]">
+                  <td className="py-2.5 lg:py-3 px-2 lg:px-3 text-right text-[10px] lg:text-xs text-[#666]">
                     {formatTime(tx.timestamp)}
                   </td>
                 </tr>

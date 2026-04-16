@@ -30,9 +30,9 @@ export default function Agents() {
 
   return (
     <DashboardLayout>
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-1">Agents</h1>
-        <p className="text-[#888] text-sm">Manage your AI agents and their spend limits</p>
+      <div className="mb-6 lg:mb-8">
+        <h1 className="text-xl lg:text-2xl font-bold mb-1">Agents</h1>
+        <p className="text-[#888] text-xs lg:text-sm">Manage your AI agents and their spend limits</p>
       </div>
 
       <div className="space-y-6">
@@ -48,17 +48,17 @@ export default function Agents() {
               key={agent.id}
               className="bg-[#111] border border-[#1a1a1a] rounded-xl overflow-hidden"
             >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#1a1a1a] rounded-lg flex items-center justify-center">
-                      <Bot className="w-5 h-5" />
+              <div className="p-4 lg:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 lg:mb-6">
+                  <div className="flex items-center gap-3 lg:gap-4">
+                    <div className="w-9 h-9 lg:w-10 lg:h-10 bg-[#1a1a1a] rounded-lg flex items-center justify-center">
+                      <Bot className="w-4 h-4 lg:w-5 lg:h-5" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <h3 className="font-semibold">{agent.name}</h3>
+                        <h3 className="font-semibold text-sm lg:text-base">{agent.name}</h3>
                         <span
-                          className={`text-xs px-2 py-0.5 rounded-full ${
+                          className={`text-[10px] lg:text-xs px-1.5 lg:px-2 py-0.5 rounded-full ${
                             agent.status === "active"
                               ? "bg-green-500/10 text-green-400"
                               : "bg-yellow-500/10 text-yellow-400"
@@ -67,7 +67,7 @@ export default function Agents() {
                           {agent.status}
                         </span>
                       </div>
-                      <div className="text-xs text-[#666] mt-0.5">
+                      <div className="text-[10px] lg:text-xs text-[#666] mt-0.5">
                         Last active: {new Date(agent.lastActive).toLocaleString()}
                       </div>
                     </div>
@@ -76,7 +76,7 @@ export default function Agents() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => toggleAgentStatus(agent.id)}
-                      className="flex items-center gap-2 px-3 py-2 text-xs border border-[#222] rounded-lg hover:bg-[#1a1a1a] transition-colors"
+                      className="flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3 py-1.5 lg:py-2 text-[10px] lg:text-xs border border-[#222] rounded-lg hover:bg-[#1a1a1a] transition-colors"
                     >
                       {agent.status === "active" ? (
                         <>
@@ -93,7 +93,7 @@ export default function Agents() {
                         setEditingId(agent.id);
                         setEditLimit(agent.spendLimit.toString());
                       }}
-                      className="flex items-center gap-2 px-3 py-2 text-xs border border-[#222] rounded-lg hover:bg-[#1a1a1a] transition-colors"
+                      className="flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3 py-1.5 lg:py-2 text-[10px] lg:text-xs border border-[#222] rounded-lg hover:bg-[#1a1a1a] transition-colors"
                     >
                       <Settings className="w-3 h-3" /> Edit Limit
                     </button>
@@ -101,8 +101,8 @@ export default function Agents() {
                 </div>
 
                 {editingId === agent.id && (
-                  <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-4 mb-4">
-                    <label className="text-xs text-[#888] mb-2 block">
+                  <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-3 lg:p-4 mb-4">
+                    <label className="text-[10px] lg:text-xs text-[#888] mb-2 block">
                       Spend Limit (USDC)
                     </label>
                     <div className="flex gap-2">
@@ -110,17 +110,17 @@ export default function Agents() {
                         type="number"
                         value={editLimit}
                         onChange={(e) => setEditLimit(e.target.value)}
-                        className="flex-1 bg-black border border-[#222] rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:border-[#444]"
+                        className="flex-1 bg-black border border-[#222] rounded-lg px-2.5 lg:px-3 py-1.5 lg:py-2 text-xs lg:text-sm font-mono focus:outline-none focus:border-[#444]"
                       />
                       <button
                         onClick={() => saveLimit(agent.id)}
-                        className="px-4 py-2 bg-white text-black text-xs font-medium rounded-lg hover:bg-[#e0e0e0]"
+                        className="px-3 lg:px-4 py-1.5 lg:py-2 bg-white text-black text-[10px] lg:text-xs font-medium rounded-lg hover:bg-[#e0e0e0]"
                       >
                         Save
                       </button>
                       <button
                         onClick={() => setEditingId(null)}
-                        className="px-4 py-2 border border-[#222] text-xs rounded-lg hover:bg-[#1a1a1a]"
+                        className="px-3 lg:px-4 py-1.5 lg:py-2 border border-[#222] text-[10px] lg:text-xs rounded-lg hover:bg-[#1a1a1a]"
                       >
                         Cancel
                       </button>
@@ -128,41 +128,41 @@ export default function Agents() {
                   </div>
                 )}
 
-                <div className="grid grid-cols-4 gap-4 mb-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-4 lg:mb-6">
                   <div>
-                    <div className="text-xs text-[#666] mb-1">Total Spent</div>
-                    <div className="font-mono font-semibold">
+                    <div className="text-[10px] lg:text-xs text-[#666] mb-1">Total Spent</div>
+                    <div className="font-mono font-semibold text-sm lg:text-base">
                       ${agent.totalSpent.toFixed(2)}
                     </div>
                   </div>
                   <div>
-                    <div className="text-xs text-[#666] mb-1">Spend Limit</div>
-                    <div className="font-mono font-semibold">
+                    <div className="text-[10px] lg:text-xs text-[#666] mb-1">Spend Limit</div>
+                    <div className="font-mono font-semibold text-sm lg:text-base">
                       ${agent.spendLimit.toFixed(2)}
                     </div>
                   </div>
                   <div>
-                    <div className="text-xs text-[#666] mb-1">Requests</div>
-                    <div className="font-mono font-semibold">
+                    <div className="text-[10px] lg:text-xs text-[#666] mb-1">Requests</div>
+                    <div className="font-mono font-semibold text-sm lg:text-base">
                       {agent.requestCount.toLocaleString()}
                     </div>
                   </div>
                   <div>
-                    <div className="text-xs text-[#666] mb-1">Utilization</div>
-                    <div className="font-mono font-semibold">
+                    <div className="text-[10px] lg:text-xs text-[#666] mb-1">Utilization</div>
+                    <div className="font-mono font-semibold text-sm lg:text-base">
                       {spendPercent.toFixed(1)}%
                     </div>
                   </div>
                 </div>
 
                 <div className="mb-2">
-                  <div className="flex items-center justify-between text-xs text-[#666] mb-1">
+                  <div className="flex items-center justify-between text-[10px] lg:text-xs text-[#666] mb-1">
                     <span>Budget utilization</span>
                     <span>
                       ${agent.totalSpent.toFixed(2)} / ${agent.spendLimit.toFixed(2)}
                     </span>
                   </div>
-                  <div className="w-full h-2 bg-[#222] rounded-full">
+                  <div className="w-full h-1.5 lg:h-2 bg-[#222] rounded-full">
                     <div
                       className={`h-full rounded-full transition-all ${
                         spendPercent > 80 ? "bg-red-500" : "bg-white"
@@ -173,7 +173,7 @@ export default function Agents() {
                 </div>
               </div>
 
-              <div className="border-t border-[#1a1a1a] p-6">
+              <div className="border-t border-[#1a1a1a] p-4 lg:p-6">
                 <div className="text-xs text-[#666] mb-3">Daily spend (last 7 days)</div>
                 <ResponsiveContainer width="100%" height={120}>
                   <BarChart data={chartData}>

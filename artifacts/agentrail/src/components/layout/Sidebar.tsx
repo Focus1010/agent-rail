@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLocation, Link } from "wouter";
 import {
   LayoutDashboard,
@@ -8,6 +9,8 @@ import {
   Zap,
   LogOut,
   Wallet,
+  Menu,
+  X,
 } from "lucide-react";
 import { logout } from "@/lib/store";
 import { useStore } from "@/hooks/useStore";
@@ -24,12 +27,15 @@ const navItems = [
 export function Sidebar() {
   const [location] = useLocation();
   const { user, wallet } = useStore();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  return (
-    <aside className="w-64 h-screen bg-[#050505] border-r border-[#1a1a1a] flex flex-col fixed left-0 top-0 z-40">
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  const SidebarContent = ({ onItemClick }: { onItemClick?: () => void }) => (
+    <>
       <div className="p-6 border-b border-[#1a1a1a]">
         <Link href="/dashboard">
-          <div className="flex items-center gap-2 cursor-pointer">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={onItemClick}>
             <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
               <Zap className="w-5 h-5 text-black" />
             </div>
@@ -52,6 +58,7 @@ export function Sidebar() {
           return (
             <Link key={item.path} href={item.path}>
               <div
+                onClick={onItemClick}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg mb-0.5 cursor-pointer transition-colors text-sm ${
                   isActive
                     ? "bg-white text-black font-medium"
@@ -84,6 +91,55 @@ export function Sidebar() {
           </button>
         </div>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="hidden lg:flex w-64 h-screen bg-[#050505] border-r border-[#1a1a1a] flex-col fixed left-0 top-0 z-40">
+        <SidebarContent />
+      </aside>
+
+      {/* Mobile Header */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#050505] border-b border-[#1a1a1a] flex items-center justify-between px-4 z-40">
+        <Link href="/dashboard">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+              <Zap className="w-5 h-5 text-black" />
+            </div>
+            <span className="text-lg font-bold tracking-tight">AgentRail</span>
+          </div>
+        </Link>
+        <button
+          onClick={() => setMobileMenuOpen(true)}
+          className="p-2 text-white hover:bg-[#111] rounded-lg transition-colors"
+        >
+          <Menu className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <>
+          <div
+            className="lg:hidden fixed inset-0 bg-black/60 z-50"
+            onClick={closeMobileMenu}
+          />
+          <div className="lg:hidden fixed right-0 top-0 bottom-0 w-72 bg-[#050505] border-l border-[#1a1a1a] flex flex-col z-50 animate-in slide-in-from-right duration-200">
+            <div className="p-4 border-b border-[#1a1a1a] flex items-center justify-between">
+              <span className="font-semibold">Menu</span>
+              <button
+                onClick={closeMobileMenu}
+                className="p-2 text-white hover:bg-[#111] rounded-lg transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <SidebarContent onItemClick={closeMobileMenu} />
+          </div>
+        </>
+      )}
+    </>
   );
 }

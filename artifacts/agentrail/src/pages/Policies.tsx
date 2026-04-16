@@ -10,13 +10,13 @@ export default function Policies() {
 
   return (
     <DashboardLayout>
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-1">Policies</h1>
-        <p className="text-[#888] text-sm">Configure spending limits and safety controls</p>
+      <div className="mb-6 lg:mb-8">
+        <h1 className="text-xl lg:text-2xl font-bold mb-1">Policies</h1>
+        <p className="text-[#888] text-xs lg:text-sm">Configure spending limits and safety controls</p>
       </div>
 
-      <div className="space-y-6">
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-6">
+      <div className="space-y-4 lg:space-y-6">
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-6">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 bg-[#1a1a1a] rounded-lg flex items-center justify-center">
               <Shield className="w-5 h-5" />
@@ -77,19 +77,19 @@ export default function Policies() {
           </div>
         </div>
 
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-6">
-          <h2 className="font-semibold mb-1">Per-Agent Spend Limits</h2>
-          <p className="text-xs text-[#666] mb-6">
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-6">
+          <h2 className="font-semibold text-sm lg:text-base mb-1">Per-Agent Spend Limits</h2>
+          <p className="text-[10px] lg:text-xs text-[#666] mb-4 lg:mb-6">
             Set individual spending caps for each agent
           </p>
 
-          <div className="space-y-4">
+          <div className="space-y-3 lg:space-y-4">
             {agents.map((agent) => {
               const percent = (agent.totalSpent / agent.spendLimit) * 100;
               return (
                 <div
                   key={agent.id}
-                  className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-4"
+                  className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-3 lg:p-4"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">

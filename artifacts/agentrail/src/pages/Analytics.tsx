@@ -51,32 +51,32 @@ export default function Analytics() {
 
   return (
     <DashboardLayout>
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-1">Analytics</h1>
-        <p className="text-[#888] text-sm">
+      <div className="mb-6 lg:mb-8">
+        <h1 className="text-xl lg:text-2xl font-bold mb-1">Analytics</h1>
+        <p className="text-[#888] text-xs lg:text-sm">
           Detailed insights into your agent spend patterns
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <div className="text-xs text-[#888] mb-1">Total Volume</div>
-          <div className="text-2xl font-bold font-mono">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 mb-6 lg:mb-8">
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <div className="text-[10px] lg:text-xs text-[#888] mb-1">Total Volume</div>
+          <div className="text-lg lg:text-2xl font-bold font-mono">
             ${agents.reduce((s, a) => s + a.totalSpent, 0).toFixed(2)}
           </div>
         </div>
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <div className="text-xs text-[#888] mb-1">Success Rate</div>
-          <div className="text-2xl font-bold font-mono">
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <div className="text-[10px] lg:text-xs text-[#888] mb-1">Success Rate</div>
+          <div className="text-lg lg:text-2xl font-bold font-mono">
             {transactions.length > 0
               ? ((successCount / transactions.length) * 100).toFixed(1)
               : 0}
             %
           </div>
         </div>
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <div className="text-xs text-[#888] mb-1">Avg per Request</div>
-          <div className="text-2xl font-bold font-mono">
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5 col-span-2 lg:col-span-1">
+          <div className="text-[10px] lg:text-xs text-[#888] mb-1">Avg per Request</div>
+          <div className="text-lg lg:text-2xl font-bold font-mono">
             $
             {transactions.length > 0
               ? (
@@ -88,10 +88,10 @@ export default function Analytics() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-5">
-          <h2 className="font-semibold text-sm mb-4">Daily Spend Trend</h2>
-          <ResponsiveContainer width="100%" height={220}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-6">
+        <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+          <h2 className="font-semibold text-xs lg:text-sm mb-3 lg:mb-4">Daily Spend Trend</h2>
+          <ResponsiveContainer width="100%" height={180}>
             <LineChart data={dailyTotals}>
               <CartesianGrid strokeDasharray="3 3" stroke="#1a1a1a" />
               <XAxis

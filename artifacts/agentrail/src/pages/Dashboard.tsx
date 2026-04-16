@@ -201,12 +201,12 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6 mb-6 lg:mb-8">
-        <div className="lg:col-span-3 bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6 mb-6 lg:mb-8 min-w-0">
+        <div className="lg:col-span-3 bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5 min-w-0">
           <div className="flex items-center justify-between mb-3 lg:mb-4">
             <h2 className="font-semibold text-xs lg:text-sm">Spend by Agent (7 days)</h2>
           </div>
-          <ResponsiveContainer width="100%" height={200}>
+          <ResponsiveContainer width="100%" height={240}>
             <BarChart data={chartData} barGap={2}>
               <CartesianGrid strokeDasharray="3 3" stroke="#1a1a1a" />
               <XAxis dataKey="day" tick={{ fill: "#666", fontSize: 11 }} axisLine={false} tickLine={false} />
@@ -228,13 +228,13 @@ export default function Dashboard() {
           </ResponsiveContainer>
         </div>
 
-        <div className="lg:col-span-2 bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+        <div className="lg:col-span-2 bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5 min-w-0">
           <h2 className="font-semibold text-xs lg:text-sm mb-3 lg:mb-4">Agents</h2>
-          <div className="space-y-2 lg:space-y-3">
+          <div className="space-y-2 lg:space-y-3 min-w-0">
             {agents.map((agent) => (
               <div
                 key={agent.id}
-                className="flex items-center justify-between p-2.5 lg:p-3 bg-[#0a0a0a] rounded-lg border border-[#1a1a1a]"
+                className="flex items-center justify-between p-2.5 lg:p-3 bg-[#0a0a0a] rounded-lg border border-[#1a1a1a] min-w-0"
               >
                 <div className="flex items-center gap-2 lg:gap-3">
                   <div
@@ -263,7 +263,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5">
+      <div className="bg-[#111] border border-[#1a1a1a] rounded-xl p-4 lg:p-5 min-w-0">
         <div className="flex items-center justify-between mb-3 lg:mb-4">
           <h2 className="font-semibold text-xs lg:text-sm">Recent Transactions</h2>
           <button
@@ -274,8 +274,8 @@ export default function Dashboard() {
           </button>
         </div>
 
-        <div className="overflow-x-auto -mx-2 px-2">
-          <table className="w-full text-xs lg:text-sm">
+        <div className="overflow-x-auto -mx-2 px-2 min-w-0">
+          <table className="w-full text-xs lg:text-sm min-w-0">
             <thead>
               <tr className="border-b border-[#1a1a1a]">
                 <th className="text-left py-2 px-2 lg:px-3 text-[10px] lg:text-xs text-[#666] font-medium">Agent</th>

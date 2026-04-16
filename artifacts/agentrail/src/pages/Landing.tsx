@@ -278,10 +278,10 @@ const response = await agentFetch("https://api.example.com/data", {
       <footer className="border-t border-[#111] py-8 px-6">
         <div className="max-w-5xl mx-auto flex items-center justify-between text-xs text-[#555]">
           <div className="flex items-center gap-2">
-            <Zap className="w-3 h-3" />
+            <img src="https://res.cloudinary.com/dw3tqpt60/image/upload/v1776379341/favicon_byrhrp.svg" className="w-6 h-6" />
             AgentRail
           </div>
-          <div>Built as MVP test on Replit -- $49/mo planned pricing</div>
+          <div>© 2026 AgentRail. All rights reserved.</div>
         </div>
       </footer>
     </div>

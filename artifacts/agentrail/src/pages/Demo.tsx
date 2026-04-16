@@ -246,8 +246,8 @@ export default function Demo() {
               <span className="text-xs text-[#666] ml-2">agent.ts</span>
             </div>
           </div>
-          <div className="p-4 overflow-x-auto">
-            <pre className="text-sm font-mono text-[#ccc] leading-relaxed whitespace-pre">
+          <div className="p-3 lg:p-4 overflow-x-auto">
+            <pre className="text-xs lg:text-sm font-mono text-[#ccc] leading-relaxed whitespace-pre-wrap break-words">
               {codeSnippet}
             </pre>
           </div>
@@ -319,8 +319,8 @@ export default function Demo() {
             </button>
           </div>
         </div>
-        <div className="p-4 overflow-x-auto max-h-[400px] overflow-y-auto">
-          <pre className="text-xs font-mono text-[#aaa] leading-relaxed whitespace-pre">
+        <div className="p-3 lg:p-4 overflow-x-auto max-h-[400px] overflow-y-auto">
+          <pre className="text-[10px] lg:text-xs font-mono text-[#aaa] leading-relaxed whitespace-pre-wrap break-words">
             {fetchWrapperCode}
           </pre>
         </div>

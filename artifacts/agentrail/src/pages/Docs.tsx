@@ -30,7 +30,7 @@ function CodeBlock({ code, lang }: { code: string; lang: string }) {
           )}
         </button>
       </div>
-      <pre className="p-4 text-sm font-mono text-[#ccc] overflow-x-auto whitespace-pre">
+      <pre className="p-3 lg:p-4 text-xs lg:text-sm font-mono text-[#ccc] overflow-x-auto whitespace-pre-wrap break-words">
         {code}
       </pre>
     </div>
@@ -198,7 +198,7 @@ const data = await response.json();
           </p>
 
           <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-6 font-mono text-xs text-[#888]">
-            <pre className="whitespace-pre leading-loose">{`
+            <pre className="whitespace-pre-wrap break-words text-[10px] lg:text-xs overflow-x-auto">{`
   Your Agent            AgentRail               API Provider
   ----------           -----------             -------------
       |                     |                       |

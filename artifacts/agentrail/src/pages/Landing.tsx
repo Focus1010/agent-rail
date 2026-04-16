@@ -182,7 +182,7 @@ export default function Landing() {
               </div>
               <span className="ml-2">npm install @agentrail/fetch</span>
             </div>
-            <code className="text-[#ccc] leading-relaxed block whitespace-pre">{`import { agentFetch } from "@agentrail/fetch";
+            <code className="text-[#ccc] text-xs lg:text-sm leading-relaxed block whitespace-pre-wrap break-words">{`import { agentFetch } from "@agentrail/fetch";
 
 // Your agent's fetch calls work exactly the same.
 // AgentRail intercepts 402 responses and pays automatically.

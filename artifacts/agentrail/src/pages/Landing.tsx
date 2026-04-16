@@ -28,9 +28,7 @@ export default function Landing() {
       <div className="min-h-screen bg-black flex items-center justify-center px-4">
         <div className="w-full max-w-md">
           <div className="flex items-center gap-2 mb-8 justify-center">
-            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-              <Zap className="w-6 h-6 text-black" />
-            </div>
+            <img src="https://res.cloudinary.com/dw3tqpt60/image/upload/v1776379341/favicon_byrhrp.svg" alt="AgentRail" className="w-10 h-10" />
             <span className="text-2xl font-bold tracking-tight">AgentRail</span>
           </div>
 
@@ -109,9 +107,7 @@ export default function Landing() {
       <header className="border-b border-[#111] px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-black" />
-            </div>
+            <img src="https://res.cloudinary.com/dw3tqpt60/image/upload/v1776379341/favicon_byrhrp.svg" alt="AgentRail" className="w-8 h-8" />
             <span className="text-lg font-bold tracking-tight">AgentRail</span>
           </div>
           <div className="flex items-center gap-3">
